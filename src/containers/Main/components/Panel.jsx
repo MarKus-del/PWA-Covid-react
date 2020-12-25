@@ -25,7 +25,7 @@ function Panel({ updateAt, onChange, data, country, getCovidData }) {
         navigator.share({
             title: `Dados do Covid20 - ${country}`,
             text: textCovid20,
-            url: 'http://covid20dio.netlify.app/'
+            url: 'https://pwa-covid19.netlify.app/'
         })
     }
 
@@ -53,11 +53,12 @@ function Panel({ updateAt, onChange, data, country, getCovidData }) {
                     <Typography variant='h5' component='span' color='primary'>COVID20</Typography>
                     <Typography variant='h5' component='span' color='primary'>Painel Coronavírus</Typography>
                     <Typography variant='body2' component='span' color='primary'>Atualizado em: {updateAt}</Typography>
-                </div>
-                <div className="pt-2">
-                    <Select onChange={onChange} value={country}>
-                        {COUNTRIES.map(renderCountries)}
-                    </Select>
+                
+                    <div className="pt-2">
+                        <Select onChange={onChange} value={country}>
+                            {COUNTRIES.map(renderCountries)}
+                        </Select>
+                    </div>
                 </div>
                 {navigateHasShare ? renderShareButton : renderCopyButton}
             </CardPanelContentStyled>
