@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
-import Api from '../../Api';
+import getCountry from '../../Api';
 import { ContainerStyled } from './style';
 import Board from './components/Board';
 import Panel from './components/Panel';
@@ -11,8 +11,8 @@ function Main(){
     const updateAt = new Date().toLocaleString();
 
     const getCovidData = useCallback((country) => {
-        Api.getCountry(country)
-        .then(data => setData(data))
+        getCountry(country)
+            .then(data => setData(data))
     }, []);
 
     useEffect(() => {
